@@ -29,7 +29,7 @@ public class GatewayController {
     public static List<String> lineGateway = new ArrayList<>();
 
     static {
-        Signal a1 = new Signal("A1", -34);
+        Signal a1 = new Signal("A1", -88);
         Signal a2 = new Signal("A2", -23);
         Signal a3 = new Signal("A3", -41);
         Signal a4 = new Signal("A4", -53);
@@ -38,7 +38,7 @@ public class GatewayController {
         Signal a7 = new Signal("A7", -56);
         Signal a8 = new Signal("A8", -41);
         Signal a9 = new Signal("A9", -39);
-        Signal a10 = new Signal("A10", -88);
+        Signal a10 = new Signal("A10", -40);
         entries.put("A3", a3);
         entries.put("A1", a1);
         entries.put("A4", a4);

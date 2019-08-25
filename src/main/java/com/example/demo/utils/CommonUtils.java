@@ -3,6 +3,9 @@ package com.example.demo.utils;
 import com.example.demo.controller.GatewayController;
 import com.example.demo.entries.Gateway;
 import com.example.demo.entries.Signal;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.stereotype.Component;
 
 import java.util.*;
 
@@ -12,10 +15,10 @@ import java.util.*;
  */
 public class CommonUtils {
 
-    public static List<double[]> computeTop3Gateway() {
-        List<Map.Entry<String, Signal>> list = new ArrayList<>(GatewayController.entries.entrySet());
+    public static List<double[]> computeTop3Gateway(List<Map.Entry<String, Signal>> list, List<String> dev) {
         System.out.println("list size: " + list.size());
-        System.out.println("line size: " + GatewayController.lineGateway.size());
+        System.out.println("line size: " + dev.size());
+
         list.sort(new Comparator<Map.Entry<String, Signal>>() {
             @Override
             public int compare(Map.Entry<String, Signal> o1, Map.Entry<String, Signal> o2) {
@@ -23,9 +26,11 @@ public class CommonUtils {
             }
         });
 
+
+
         for (int i = 0; i < list.size(); i++) {
-            for (int j = 0; j < GatewayController.lineGateway.size(); j++) {
-                if (list.get(i).getKey().equals(GatewayController.lineGateway.get(j))) {
+            for (int j = 0; j < dev.size(); j++) {
+                if (list.get(i).getKey().equals(dev.get(j))) {
                     list.remove(i);
                     i--;
                 }
@@ -38,8 +43,8 @@ public class CommonUtils {
 
         if ((point1[0] == point2[0] && point2[0] == point3[0]) || (point1[1] == point2[1] && point2[1] == point3[1])) {
             System.out.println("在同一条直线上");
-            GatewayController.lineGateway.add(list.get(2).getKey());
-            List<double[]> doubles = computeTop3Gateway();
+            dev.add(list.get(2).getKey());
+            List<double[]> doubles = computeTop3Gateway(list, dev);
             return doubles;
         } else {
             List<double[]> l = new ArrayList<>();
