@@ -25,4 +25,6 @@ public interface GatewayService {
     * @description 计算符合条件的网关
     */
     List<String> computeGateway();
+
+    void thread() throws InterruptedException;
 }

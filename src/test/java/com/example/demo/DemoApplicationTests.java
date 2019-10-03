@@ -13,10 +13,7 @@ import org.springframework.data.redis.core.ListOperations;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @RunWith(SpringRunner.class)
@@ -48,5 +45,4 @@ public class DemoApplicationTests {
         System.out.println(dev == null);
         System.out.println(dev);
     }
-
 }

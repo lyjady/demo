@@ -58,4 +58,9 @@ public class GatewayController {
         gatewayService.computeGateway();
         return null;
     }
+
+    @RequestMapping("/test")
+    public void thread() throws InterruptedException {
+        gatewayService.thread();
+    }
 }

@@ -3,9 +3,6 @@ package com.example.demo.utils;
 import com.example.demo.controller.GatewayController;
 import com.example.demo.entries.Gateway;
 import com.example.demo.entries.Signal;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.StringRedisTemplate;
-import org.springframework.stereotype.Component;
 
 import java.util.*;
 
@@ -25,8 +22,6 @@ public class CommonUtils {
                 return o2.getValue().compareTo(o1.getValue());
             }
         });
-
-
 
         for (int i = 0; i < list.size(); i++) {
             for (int j = 0; j < dev.size(); j++) {
